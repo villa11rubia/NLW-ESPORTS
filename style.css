@@ -1,0 +1,157 @@
+* {  /*limpando as configurações padroes do navegador*/
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul {
+
+    list-style: none;
+    }
+
+body{
+    background-image: url(assets/Fundo.jpg);
+    background-position: top center;
+    background-size: 100% auto; /* ele vai ficar 100% na sua largura e automatico na sua altura...*/
+    background-repeat: no-repeat; /*estamos dizendo para não repetir a imagem de fundo.*/
+    background-color: #121214;
+}
+
+body * {
+    font-family: 'Inter','sens-serif';
+    line-height: 160%; /*altura da linha*/
+   
+}
+header {
+    padding-top: 32px;
+}
+
+
+header img {
+    background-image: linear-gradient(90deg, #9572FC 0%, #43E7AD 50.52%, #E2D45C 100%);
+    padding: 4px;
+    transition: transform .3s;
+    
+    height: 152px;
+}
+
+div.photo-perfil img {
+    width: 120px;
+    height: 120px;
+    border-radius: 999px;
+    display: block;
+    margin: auto;
+
+}
+
+header div img:hover {
+    transform: scale(1.1);
+
+}
+
+main {
+    max-width: 580px;
+    width: 90%; /*ele sempre vai pegar 90% da tela se a tela tiver menos de 500px*/
+    margin: 32px auto;
+    
+
+    display: grid; /*o display grid vai continuar com os elementos um a baix do outro, porém eu desbloqueio o GRIP separação entre elementos...*/
+    gap: 24px;
+}
+
+section {
+    color: white;
+    background-image: linear-gradient(90deg, #9572FC 0%, #43E7AD 50.52%, #E2D45C 100%);
+    padding-top: 4px;
+    border-radius: 10px;
+}
+
+section div {
+    background-color:#2A2634;
+    padding: 32px;
+    padding-top: 24px;
+    border-radius: 8px;   
+}
+
+section h2 {
+    
+    font-weight: 900;
+    font-size: 24px;
+    letter-spacing: -0.47px; /*espaço entre as letras.*/
+}
+section p {
+    letter-spacing: -0.18px;
+    color: #A1A1AA;
+}
+section ul {
+    display: flex;
+    flex-wrap: wrap; /*quando eu adicionar mais games a minha lista, o wrap não vai deixar minha div adicionar os mesmos do lado e sim para baixo... caso caiba ele vai se ajustando.*/
+    gap: 16px; /*esse GAP só funciona pq eu coloquei o display: flex, como a propriedade inicial do UL é o display block, e eles trabalham um a baixo do outro não faz sentido colocar espaçamento LATERAL entre eles...*/
+    margin-top: 24px;
+}
+.games-list img {
+    width: 90px;
+    border-radius: 8px;
+}
+
+.channel-list img {
+    width: 70px;
+    height: 70px;
+
+    border: 1px solid #443E54;
+    border-radius: 999px; /*arredondamento de borda...*/
+}
+/*FOTO DE PERFIL*/
+
+section ul li {
+    transition: transform .3s;
+}
+
+section ul li:hover {
+    transform: scale(1.1);
+}
+
+/*animation*/
+
+header div{
+    animation: fromTop .7s .2s backwards;   /*ele vai pegar as propriedades do key e vai mander no header.*/
+}
+
+main  section {
+    animation: fromBottom .7s backwards;
+}
+
+main section:nth-child(1) {  /* MAIN PEGA O SECTION DO FILHO NÚMERO 1*/
+    animation-delay: 0;
+}
+
+main section:nth-child(2) {
+    animation-delay: .4s;
+}
+
+main section:nth-child(3) {
+    animation-delay: .8s;
+}
+
+@keyframes fromTop { /* tem a função de: dar o inicio a nossa animação */
+    from { /* DE */
+        opacity: 0; /* DE CIMA PARA BAIXO */
+        transform: translateY(-30px);
+    } 
+    
+    to { /* PARA */
+        opacity: 1;  
+        transform: translateY(0);
+    } 
+}
+ @keyframes fromBottom {
+    from {
+        opacity: 0; /* DE BAIXO PARA CIMA */
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+ }
